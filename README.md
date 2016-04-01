@@ -1,1 +1,59 @@
-# imagecopyresized
+# DD_ImgCopyResized
+A simple great php > do first resize > than crop image to fix width and height without losing dimension ratio in a friendly and simple way.
+Horizontal or landscape format, cut always either from right or from bottom to get final width and height without stretching.
+Save original full width and generated thumbnail in a web comfort lowercase and jpg format.
+
+
+Functionality sketch of DD_ImgCopyResized->generateThumbnail() method
+
+       +------ $final_width-----+--------$org_X---------+
+       |                        |                       |
+       |                        |                       |
+      $final_height             |                     $org_Y
+       |                        |                       |
+       |                        |                       |
+       |                        |                       |
+       |       $thumbnail       |       $src_image      |
+       |   (Resampled image)    |    (Original image)   |
+       |                        |                       |
+       |                        |                       |
+       |                        |                       |
+       |                        |                       |
+       +------------------------+                       |
+       |                                                |
+       |                                                |
+       +------------------------------------------------+
+
+Source: http://php.net/manual/de/function.imagecopyresampled.php#112742
+
+This method should work and run on a wide php server range  <br>
+and works without additional pear and php extensions!
+So it is easy to get running ;)
+
+# Generated file examples:
+1872org_image.jpg (Original image)  <br>
+1872_image.jpg (Thumbnail)
+
+# System Requirements:
+PHP 5.6 is recommended
+
+# DEMO
+There´s also an available.
+
+ To test that Demo on you php environment.                             
+ open /demo/index.php on you editor and jump to Line 33
+
+      <!-- DD_ImgCopyResized implementation step by step - Manual  -->
+      
+ There you can find a step by step manual (See Comments on demo/index.php)
+ Please read all Steps there.
+
+ Good Luck
+
+-
+
+Author: Didldu e.K. Florian Häusler https://www.hr-it-solution.com
+
+Copyright: (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
+
+http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
