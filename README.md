@@ -45,7 +45,7 @@ open /demo/index.php on you editor and jump to line 33
 
       <!-- DD_ImgCopyResized implementation step by step - Manual  -->
       
-There you can find a step by step manual (See Comments on demo/index.php)       <br>
+There you can find a step by step manual (See comments on demo/index.php)       <br>
 Please read all steps there.
 
  Good luck
