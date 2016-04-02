@@ -19,7 +19,6 @@ class DD_ImgCopyResized
      * @param $final_quality int optional (possible value 10-100) 80 is the recommended web jpg quality of thumbnails
      * @return string src of thumbnail
      */
-
     public function generateThumbnail($file = array(), $final_width, $final_height, $savepath, $final_quality = 80)
     {
 
