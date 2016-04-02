@@ -127,8 +127,5 @@ class DD_ImgCopyResized
             // After success this class returns the src string of that generated thumbnail ( example string="/img/1372_image.jpg" )
             return $SavePathThump;
         }
-        
-        return die();
     }
-    
 }
