@@ -1,6 +1,6 @@
 <?php
 /**
- * @version    2-0-2-0 // Y-m-d 2016-04-01
+ * @version    2-0-3-0 // Y-m-d 2016-04-01
  * @author     Didldu e.K. Florian Häusler https://www.hr-it-solution.com
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
@@ -34,13 +34,13 @@ class DD_ImgCopyResized
         // get original width (X) and height (Y) of image
         list($org_X, $org_Y) = getimagesize($tmpfname);
 
-        // security check depending on image size
-        if(getimagesize($tmpfname) === false){
-            die($this->UnsupportedFile);
-        }
         // minimum image size check
-        elseif($org_X < $final_width OR $org_Y < $final_height){
-            echo $this->MinimumFileSize;
+        if($org_X < $final_width OR $org_Y < $final_height){
+            die($this->MinimumFileSize);
+        }
+        // security check depending on image size
+        else if(getimagesize($tmpfname) === false){
+            die($this->UnsupportedFile);
         }
         // security check depending on mime-type
         elseif(!in_array(getimagesize($tmpfname)[2] , array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF ))) {
