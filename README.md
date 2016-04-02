@@ -1,5 +1,5 @@
 # DD_ImgCopyResized
-A reliable and extensible php library > do first resize > than crop image to fix width and height without losing dimension ratio in a user-friendly and simple way.
+A reliable and extensible php library > do first resize > then crop image to fix width and height without losing dimension ratio in a user-friendly and simple way.
 Horizontal or landscape format, cut always either from right side or from bottom to get final width and height without stretching.
 Save original width and generated thumbnail in a web comfort jpg format.
 
