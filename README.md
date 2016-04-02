@@ -30,11 +30,11 @@ This method should work and run on a wide range of php servers                  
 and works without additional pear php extensions!
 It is so easy to get it running ;)
 
-# Generated file examples:
+# Generated file examples
 1872org_image.jpg (Original image)  <br>
 1872_image.jpg (Thumbnail)
 
-# System Requirements:
+# System Requirements
 PHP 5.6 is recommended
 
 # DEMO
