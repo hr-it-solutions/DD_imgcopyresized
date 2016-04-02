@@ -5,8 +5,8 @@
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
  *
- * A Simple PHP HTML Demonstration of DD_ImgCopyResized
- * including step by step - Manual (jump to Line 33)
+ * A simple php html demonstration of DD_ImgCopyResized
+ * including step by step - Manual (jump to line 33)
  **/
 ?>
 <!doctype html>
@@ -41,7 +41,7 @@ if (isset($_FILES['file'])) {
     $savepath = 'generated_images/';    // NOTE: depending on server settings, this path has to exist on your server!
     $final_quality = 80;                // 80 is a recommended web jpg quality of thumbnails
 
-    // 3rd Step: Creates a new class instance
+    // 3rd Step: Create a new class instance
     $img = new DD_ImgCopyResized();
 
     // 4th Step: Executing generateThumbnail() method

@@ -41,7 +41,7 @@ PHP 5.6 is recommended
 There´s also a demo available.
 
  To test that demo on you php environment.
- open /demo/index.php on you editor and jump to Line 33
+ open /demo/index.php on you editor and jump to line 33
 
       <!-- DD_ImgCopyResized implementation step by step - Manual  -->
       
