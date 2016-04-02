@@ -1,6 +1,6 @@
 <?php
 /**
- * @version    2-0-0-0 // Y-m-d 2016-04-01
+ * @version    2-0-1-0 // Y-m-d 2016-04-01
  * @author     Didldu e.K. Florian Häusler https://www.hr-it-solution.com
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
@@ -13,7 +13,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple PHP HTML Demonstration of DD_ImgCopyResized</title>
+    <title>Simple PHP HTML Demonstration Of DD_ImgCopyResized</title>
     <style>* {text-align: center} h2 {color: #080} p {color: #f00}</style>
 </head>
 <body>
@@ -38,14 +38,14 @@ if (isset($_FILES['file'])) {
     $file = $_FILES["file"];;
     $final_width = 400;                 // 400px
     $final_height = 300;                // 300px typisches 4:3 Format
-    $savepath = 'generated_images/';    // NOTE: depending on server settings, this path have to exists on your server!
-    $final_qualy = 80;                  // 80 is a recommended web jpg qualy of thumbnails
+    $savepath = 'generated_images/';    // NOTE: depending on server settings, this path has to exist on your server!
+    $final_quality = 80;                  // 80 is a recommended web jpg quality of thumbnails
 
     // 3rd Step: Creates a new class instance
     $img = new DD_ImgCopyResized();
 
     // 4th Step: Executing generateThumbnail() method
-    $newfile = $img->generateThumbnail($file, $final_width, $final_height, $savepath, $final_qualy);
+    $newfile = $img->generateThumbnail($file, $final_width, $final_height, $savepath, $final_quality);
 
     // 5th Step: Use returned class src string
     echo "<img src='" . $newfile . "'>";

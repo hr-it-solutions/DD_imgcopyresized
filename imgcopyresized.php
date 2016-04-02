@@ -1,6 +1,6 @@
 <?php
 /**
- * @version    2-0-0-0 // Y-m-d 2016-04-01
+ * @version    2-0-1-0 // Y-m-d 2016-04-01
  * @author     Didldu e.K. Florian Häusler https://www.hr-it-solution.com
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
@@ -8,19 +8,19 @@
 
 class DD_ImgCopyResized
 {
-    public $UnsupportedFile = "Unsupported files format!";
-    public $MinimumFileSize = "your image is smaller than the minimum required size";
+    public $UnsupportedFile = "Unsupported file format!";
+    public $MinimumFileSize = "your image is smaller than the minimum size required";
 
     /**
      * @param $file array $_FILE[]
      * @param $final_width int width of thumbnail
      * @param $final_height int height of thumbnail
      * @param $savepath string savepath of images
-     * @param $final_qualy int optional (possible value 10-100) 80 is a recommended web jpg quality of thumbnails
+     * @param $final_quality int optional (possible value 10-100) 80 is the recommended web jpg quality of thumbnails
      * @return string src of thumbnail
      */
 
-    public function generateThumbnail($file = array(), $final_width, $final_height, $savepath, $final_qualy = 80)
+    public function generateThumbnail($file = array(), $final_width, $final_height, $savepath, $final_quality = 80)
     {
 
         // get file name of image
@@ -32,7 +32,7 @@ class DD_ImgCopyResized
         // get extension of image and set to lowercase character
         $extension = strtolower(substr(strrchr($fname, '.'), 1));
 
-        // get original width (X) and hight (Y) of image
+        // get original width (X) and height (Y) of image
         list($org_X, $org_Y) = getimagesize($tmpfname);
 
         // security check depending on image size
@@ -52,22 +52,21 @@ class DD_ImgCopyResized
             die($this->UnsupportedFile);
         } else {
             
-            // Build savepath for original image and thumbnail image including lowercase setup file name
-            $newfile = '';
+            // Build savepath for original image and thumbnail image, including file name for lowercase setup
             $random = rand(1000, 9999) ;
             
-            // set random präfix of original image
+            // set random prefix of original image
             $newfile = $random . "org_" . $fname;
             $SavePathOrg = $savepath . strtolower($newfile);
             
-            // set random präfix of resized image
+            // set random prefix of thumbnail image
             $newfile = $random . "_" . $fname;
             $SavePathThump = $savepath . strtolower($newfile);
             
             // move uploaded original file to savepath
             move_uploaded_file($tmpfname, $SavePathOrg);
 
-            // create a new original image
+            // create image from
             $src_image = '';
             if ($extension === "jpg" || $extension === "jpeg") {
                 $src_image = imagecreatefromjpeg($SavePathOrg);
@@ -81,7 +80,7 @@ class DD_ImgCopyResized
              /**
                * Calculation Process:
                * horizontal or landscape format,
-               * cut always either from right or from bottom to get final width and height without stretching.
+               * cut always either from right side or from bottom to get final width and height without stretching.
                *
                * $org_X is original width of the image
                * $org_Y is original height of the image
@@ -91,7 +90,7 @@ class DD_ImgCopyResized
                **/
 
                 // Resize thumbnail without losing dimension ratio based on uploaded file size,
-                // checking whether to cut from bottom or from right
+                // checking whether to cut from right side or from bottom
                 if ((($org_Y / $org_X) * $final_width) < $final_height) {
                     // height is smaller than x:y
                     $new_Y = $final_height;
@@ -123,11 +122,12 @@ class DD_ImgCopyResized
             $tmp_dst_image = imagecreatetruecolor($final_width, $final_height);
             imagecopyresampled($tmp_dst_image, $src_image, 0, 0, 0, 0, $final_width, $final_height, $final_width, $final_height);
 
-            imagejpeg($tmp_dst_image, $SavePathThump, $final_qualy); // Output image to file
+            imagejpeg($tmp_dst_image, $SavePathThump, $final_quality); // Output image to file
             imagedestroy($tmp_dst_image); // Destroy temporary image
-            
-            // After success this class returns the src string of that generated thumbnail ( example string="/img/1372_image.jpg" ) 
+
+            // After success this class returns the src string of that generated thumbnail ( example string="/img/1372_image.jpg" )
             return $SavePathThump;
         }
+        return die();
     }
 }

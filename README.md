@@ -1,10 +1,10 @@
 # DD_ImgCopyResized
-A simple great php > do first resize > than crop image to fix width and height without losing dimension ratio in a friendly and simple way.
-Horizontal or landscape format, cut always either from right or from bottom to get final width and height without stretching.
-Save original full width and generated thumbnail in a web comfort lowercase and jpg format.
+A simple great php > do first resize > than crop image to fix width and height without losing dimension ratio in a user-friendly and simple way.
+Horizontal or landscape format, cut always either from right side or from bottom to get final width and height without stretching.
+Save original width and generated thumbnail in a web comfort jpg format.
 
 
-Functionality sketch of DD_ImgCopyResized->generateThumbnail() method
+Sketch of DD_ImgCopyResized->generateThumbnail() method
 
        +------ $final_width-----+--------$org_X---------+
        |                        |                       |
@@ -26,9 +26,9 @@ Functionality sketch of DD_ImgCopyResized->generateThumbnail() method
 
 Source: http://php.net/manual/de/function.imagecopyresampled.php#112742
 
-This method should work and run on a wide php server range  <br>
+This method should work and run on a wide range of php servers  <br>
 and works without additional pear php extensions!
-So it is easy to get running ;)
+It is so easy to get it running ;)
 
 # Generated file examples:
 1872org_image.jpg (Original image)  <br>
