@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Simple PHP HTML Demonstration Of DD_ImgCopyResized</title>
-    <style>* {text-align: center} h2 {color: #080} p {color: #f00}</style>
+    <style>* {text-align: center;} h2 {color: #080;} p {color: #f00;}</style>
 </head>
 <body>
 <h2>Let´s test</h2>
@@ -39,7 +39,7 @@ if (isset($_FILES['file'])) {
     $final_width = 400;                 // 400px
     $final_height = 300;                // 300px typisches 4:3 Format
     $savepath = 'generated_images/';    // NOTE: depending on server settings, this path has to exist on your server!
-    $final_quality = 80;                  // 80 is a recommended web jpg quality of thumbnails
+    $final_quality = 80;                // 80 is a recommended web jpg quality of thumbnails
 
     // 3rd Step: Creates a new class instance
     $img = new DD_ImgCopyResized();

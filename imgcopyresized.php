@@ -1,6 +1,6 @@
 <?php
 /**
- * @version    2-0-1-0 // Y-m-d 2016-04-01
+ * @version    2-0-2-0 // Y-m-d 2016-04-01
  * @author     Didldu e.K. Florian Häusler https://www.hr-it-solution.com
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
@@ -43,7 +43,7 @@ class DD_ImgCopyResized
         elseif($org_X < $final_width OR $org_Y < $final_height){
             echo $this->MinimumFileSize;
         }
-        // security check depending on Mime-Type
+        // security check depending on mime-type
         elseif(!in_array(getimagesize($tmpfname)[2] , array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF ))) {
             die($this->UnsupportedFile);
         }
@@ -52,7 +52,7 @@ class DD_ImgCopyResized
             die($this->UnsupportedFile);
         } else {
             
-            // Build savepath for original image and thumbnail image, including file name for lowercase setup
+            // build savepath for original image and thumbnail image, including file name for lowercase setup
             $random = rand(1000, 9999) ;
             
             // set random prefix of original image
@@ -89,7 +89,7 @@ class DD_ImgCopyResized
                * $final_height is given height of the image
                **/
 
-                // Resize thumbnail without losing dimension ratio based on uploaded file size,
+                // resize thumbnail without losing dimension ratio based on uploaded file size,
                 // checking whether to cut from right side or from bottom
                 if ((($org_Y / $org_X) * $final_width) < $final_height) {
                     // height is smaller than x:y
@@ -128,6 +128,8 @@ class DD_ImgCopyResized
             // After success this class returns the src string of that generated thumbnail ( example string="/img/1372_image.jpg" )
             return $SavePathThump;
         }
+        
         return die();
     }
+    
 }
