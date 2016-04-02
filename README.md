@@ -27,7 +27,7 @@ Functionality sketch of DD_ImgCopyResized->generateThumbnail() method
 Source: http://php.net/manual/de/function.imagecopyresampled.php#112742
 
 This method should work and run on a wide php server range  <br>
-and works without additional pear and php extensions!
+and works without additional pear php extensions!
 So it is easy to get running ;)
 
 # Generated file examples:
@@ -38,17 +38,17 @@ So it is easy to get running ;)
 PHP 5.6 is recommended
 
 # DEMO
-There´s also an available.
+There´s also a demo available.
 
- To test that Demo on you php environment.                             
+ To test that demo on you php environment.
  open /demo/index.php on you editor and jump to Line 33
 
       <!-- DD_ImgCopyResized implementation step by step - Manual  -->
       
  There you can find a step by step manual (See Comments on demo/index.php)
- Please read all Steps there.
+ Please read all steps there.
 
- Good Luck
+ Good luck
 
 -
 
