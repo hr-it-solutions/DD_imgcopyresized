@@ -32,7 +32,7 @@
 if (isset($_FILES['file'])) {
 
     // 1st Step: Include DD_ImgCopyResized library
-    include('../librarie/imgcopyresized.php');
+    include('../library/imgcopyresized.php');
 
     // 2nd Step: Setup expected arguments for DD_ImgCopyResized->generateThumbnail() method
     $file = $_FILES["file"];;
