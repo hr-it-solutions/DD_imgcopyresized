@@ -1,6 +1,6 @@
 <?php
 /**
- * @version    2-0-3-0 // Y-m-d 2016-04-02
+ * @version    2-0-4-0 // Y-m-d 2016-04-05
  * @author     Didldu e.K. Florian Häusler https://www.hr-it-solution.com
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
@@ -8,19 +8,36 @@
 
 class DD_ImgCopyResized
 {
-    public $UnsupportedFile = "Unsupported file format!";
-    public $MinimumFileSize = "your image is smaller than the minimum size required";
+    private $final_width;
+    private $final_height;
+    private $final_quality;
+
+    private $Unsupported = "Unsupported file format!";
+    private $MinimumSize = "your image is smaller than the minimum size required";
+
+    /**
+     * DD_ImgCopyResized constructor.
+     * @param $final_width int width of thumbnail
+     * @param $final_height int height of thumbnail
+     * @param $final_quality int optional (possible value 10-100) 80 is the recommended web jpg quality of thumbnails
+     */
+    public function __construct($final_width = 400, $final_height = 300, $final_quality = 80)
+    {
+        $this->final_width = $final_width;
+        $this->final_height = $final_height;
+        $this->final_quality = $final_quality;
+    }
 
     /**
      * @param $file array $_FILE[]
-     * @param $final_width int width of thumbnail
-     * @param $final_height int height of thumbnail
      * @param $savepath string savepath of images
-     * @param $final_quality int optional (possible value 10-100) 80 is the recommended web jpg quality of thumbnails
      * @return string src of thumbnail
      */
-    public function generateThumbnail($file = array(), $final_width, $final_height, $savepath, $final_quality = 80)
+    public function generateThumbnail($file = array(), $savepath = "/")
     {
+        // get final thumbnail size
+        $final_width = &$this->final_width;
+        $final_height = &$this->final_height;
 
         // get file name of image
         $fname = $file['name'];
@@ -36,19 +53,19 @@ class DD_ImgCopyResized
 
         // minimum image size check
         if($org_X < $final_width OR $org_Y < $final_height){
-            die($this->MinimumFileSize);
+            die($this->MinimumSize);
         }
         // security check depending on image size
         else if(getimagesize($tmpfname) === false){
-            die($this->UnsupportedFile);
+            die($this->Unsupported);
         }
         // security check depending on mime-type
         elseif(!in_array(getimagesize($tmpfname)[2] , array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF ))) {
-            die($this->UnsupportedFile);
+            die($this->Unsupported);
         }
         // security check depending on supported files format
         elseif (($extension !== "jpg") && ($extension !== "jpeg") && ($extension !== "png") && ($extension !== "gif")) {
-            die($this->UnsupportedFile);
+            die($this->Unsupported);
         } else {
             
             // build savepath for original image and thumbnail image, including file name for lowercase setup
@@ -86,7 +103,7 @@ class DD_ImgCopyResized
                *
                * $final_width is given width of the image
                * $final_height is given height of the image
-               **/
+               */
 
                 // resize thumbnail without losing dimension ratio based on uploaded file size,
                 // checking whether to cut from right side or from bottom
@@ -121,11 +138,22 @@ class DD_ImgCopyResized
             $tmp_dst_image = imagecreatetruecolor($final_width, $final_height);
             imagecopyresampled($tmp_dst_image, $src_image, 0, 0, 0, 0, $final_width, $final_height, $final_width, $final_height);
 
-            imagejpeg($tmp_dst_image, $SavePathThump, $final_quality); // Output image to file
+            imagejpeg($tmp_dst_image, $SavePathThump, $this->final_quality); // Output image to file
             imagedestroy($tmp_dst_image); // Destroy temporary image
 
             // After success this class returns the src string of that generated thumbnail ( example string="/img/1372_image.jpg" )
             return $SavePathThump;
         }
+    }
+
+    /**
+     * Language setter method should be executed before generateThumbnail()
+     *
+     * @param $Unsupported string (language string for unsupported format or corrupt file)
+     * @param $MinimumSize string (language string for minimum file size
+     */
+    public function setLanguage($Unsupported,$MinimumSize){
+        $this->Unsupported = $Unsupported;
+        $this->MinimumSize = $MinimumSize;
     }
 }
