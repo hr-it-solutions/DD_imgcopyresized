@@ -1,6 +1,6 @@
 <?php
 /**
- * @version    2-0-4-0 // Y-m-d 2016-04-05
+ * @version    2-0-5-0 // Y-m-d 2016-04-12
  * @author     Didldu e.K. Florian Häusler https://www.hr-it-solution.com
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
@@ -160,7 +160,7 @@ class DD_ImgCopyResized
 			imagejpeg($tmp_dst_image, $SavePathThump, $this->final_quality); // Output image to file
 			imagedestroy($tmp_dst_image); // Destroy temporary image
 
-			// After success this class returns the src string of that generated thumbnail ( example string="/img/1372_image.jpg" )
+			// After successful completion, this class returns the src string of the generated thumbnail ( example string="/img/1372_image.jpg" )
 			return $SavePathThump;
 		}
 	}

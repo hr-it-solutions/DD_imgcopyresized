@@ -1,7 +1,7 @@
 # DD_ImgCopyResized
-A reliable and extensible php library > do first resize > then crop image to fix width and height without losing dimension ratio in a user-friendly and simple way.
+A reliable and extensible php library > first resize your image > then crop the image to fix width and height without losing dimension ratio in a user-friendly and simple way.
 Horizontal or landscape format, cut always either from right side or from bottom to get final width and height without stretching.
-Save original width and generated thumbnail in a web comfort jpg format.
+Save original width and generated thumbnail in a web compatible jpg format.
 
 
 Sketch of DD_ImgCopyResized->generateThumbnail() method
@@ -40,13 +40,13 @@ PHP 5.6 is recommended
 # Demo
 There´s also a demo available.
 
-To test that demo on you php environment.                                                   <br>
-open /demo/index.php on you editor and jump to line 33
+To test that demo on your php environment.                                                   <br>
+open /demo/index.php in your editor and go to line 33
 
       <!-- DD_ImgCopyResized implementation step by step - Manual  -->
-      
+
 There you can find a step by step manual (See comments on demo/index.php)                   <br>
-Please read all steps there.
+Please make sure, you read through all the steps in there.
 
 Good luck
 
