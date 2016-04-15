@@ -35,7 +35,7 @@ It is so easy to get it running ;)
 1872_image.jpg (Thumbnail)
 
 # System Requirements
-PHP 5.6 is recommended
+PHP 5.6.13 or newer is recommended.
 
 # Demo
 There´s also a demo available.
