@@ -1,6 +1,6 @@
 <?php
 /**
- * @version    2-0-4-0 // Y-m-d 2016-04-05
+ * @version    2-0-4-0 // Y-m-d 2016-04-16
  * @author     Didldu e.K. Florian Häusler https://www.hr-it-solution.com
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
@@ -12,7 +12,7 @@ class DD_ImgCopyResized
 	protected $final_quality;
 
 	private $Unsupported = "Unsupported file format!";
-	private $MinimumSize = "your image is smaller than the minimum size required";
+	private $MinimumSize = "Your image is smaller than the minimum size required";
 
 	/**
 	 * DD_ImgCopyResized constructor.
