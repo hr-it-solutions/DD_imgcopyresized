@@ -51,7 +51,7 @@ Please read all steps there.
 Good luck
 
 # DD_ Namecpace
-DD_ stands for Didldu e.K. | HR IT-Solutions
+DD_ stands for Didldu e.K. | HR IT-Solutions                                                <br>
 A namecpace prefix, provided to avoid element name conflicts.
 
 -
