@@ -53,7 +53,6 @@ Good luck
 # DD_ Namecpace
 DD_ stands for Didldu e.K. | HR IT-Solutions                                                <br>
 A namecpace prefix, provided to avoid element name conflicts.
-
 -
 
 Author: Didldu e.K. Florian Häusler https://www.hr-it-solution.com                          <br>
