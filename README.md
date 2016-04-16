@@ -51,7 +51,7 @@ Please read all steps there.
 Good luck
 
 # DD_ Namespace
-DD_ stands for  **D**idl**d**u e.K. | HR IT-Solutions                                                <br>
+DD_ stands for  **D**idl**d**u e.K. | HR IT-Solutions (Brand recognition)                                              <br>
 It is a namespace prefix, provided to avoid element name conflicts.
 - - -
 Author: Didldu e.K. Florian Häusler https://www.hr-it-solution.com                          <br>
