@@ -50,9 +50,9 @@ Please read all steps there.
 
 Good luck
 
-# DD_ Namecpace
-DD_ stands for Didldu e.K. | HR IT-Solutions                                                <br>
-A namecpace prefix, provided to avoid element name conflicts.
+# DD_ Namespace
+DD_ stands for  **D**idl**d**u e.K. | HR IT-Solutions                                                <br>
+It is a namespace prefix, provided to avoid element name conflicts.
 - - -
 Author: Didldu e.K. Florian Häusler https://www.hr-it-solution.com                          <br>
 Copyright: (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions                                    <br>
