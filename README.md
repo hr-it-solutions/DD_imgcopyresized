@@ -26,7 +26,7 @@ Sketch of DD_ImgCopyResized->generateThumbnail() method
 
 Source: http://php.net/manual/de/function.imagecopyresampled.php#112742
 
-The desired storage location, final height, final width, quality, and
+The desired storage location, final height, final width, quality, and                       <br>
 the image file in .jpg, .gif, or .png format can be included as a parameter in the method.
 
 **The following steps are executed by the function on the basis of the transferred parameters:**
