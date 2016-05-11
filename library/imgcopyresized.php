@@ -1,6 +1,6 @@
 <?php
 /**
- * @version    2-0-4-0 // Y-m-d 2016-04-16
+ * @version    2-0-5-0 // Y-m-d 2016-04-12
  * @author     Didldu e.K. Florian Häusler https://www.hr-it-solution.com
  * @copyright  Copyright (C) 2011 - 2016 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
@@ -12,7 +12,7 @@ class DD_ImgCopyResized
 	protected $final_quality;
 
 	private $Unsupported = "Unsupported file format!";
-	private $MinimumSize = "Your image is smaller than the minimum size required";
+	private $MinimumSize = "your image is smaller than the minimum size required";
 
 	/**
 	 * DD_ImgCopyResized constructor.
@@ -123,23 +123,18 @@ class DD_ImgCopyResized
 					// height is smaller than x:y
 					$new_Y     = $final_height;
 					$new_X     = floor($final_height * ($org_X / $org_Y));  // Resize based on height
+					$dst_image = imagecreatetruecolor($new_X, $new_Y);
+					imagecopyresized($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
 				}
 				else
 				{
 					// height is heigher than x:y
 					$new_X     = $final_width;
 					$new_Y     = floor($final_width * ($org_Y / $org_X));  // Resize based on width
+					$dst_image = imagecreatetruecolor($new_X, $new_Y);
+					imagecopyresized($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
 				}
 			}
-
-			// Create truecolor image
-			$dst_image = imagecreatetruecolor($new_X, $new_Y);
-			if ($extension === "png" || $extension === "gif")
-			{   // Fill transparen background image
-				$whitecolor = imagecolorallocate($dst_image, 255, 255, 255);
-				imagefill($dst_image, 0, 0, $whitecolor);
-			}
-			imagecopyresized($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
 
 			// Create thumbnail image
 			if ($extension === "jpg" || $extension === "jpeg")
@@ -165,7 +160,7 @@ class DD_ImgCopyResized
 			imagejpeg($tmp_dst_image, $SavePathThump, $this->final_quality); // Output image to file
 			imagedestroy($tmp_dst_image); // Destroy temporary image
 
-			// After success this class returns the src string of that generated thumbnail ( example string="/img/1372_image.jpg" )
+			// After successful completion, this class returns the src string of the generated thumbnail ( example string="/img/1372_image.jpg" )
 			return $SavePathThump;
 		}
 	}
