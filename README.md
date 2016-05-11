@@ -36,7 +36,7 @@ The following steps are executed by the function on the basis of the transferred
 3. The image is scaled to the specified final height or width (so that the final height or width is not exceeded and there is no loss in dimension).
 4. The image is cropped either from the right or from the bottom.
 5. The transparent background is filled white.
-6. Finally the thumbnail is saved by this function, and the storage location of the thumbnail is returned as a parameter for further processing (return value).
+6. Finally the thumbnail is saved  in a web comfort jpg format by this function, and the storage location of the thumbnail is returned as a parameter for further processing (return value).
 
 This method should work and run on a wide range of php servers                              <br>
 and works without additional pear php extensions!                                           <br>
