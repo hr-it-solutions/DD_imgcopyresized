@@ -4,6 +4,8 @@ do first resize, then crop image to fix width and height without losing dimensio
 Horizontal or landscape format, cut always either from right side or from bottom to get final width and height without stretching.
 Save original width and generated thumbnail in a web comfort jpg format.
 
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=102)](https://github.com/ellerbrock/open-source-badge/) [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.png?v=102)](https://opensource.org/licenses/GPL-2.0/)  
+
 Sketch of DD_ImgCopyResized->generateThumbnail() method
 
        +------ $final_width-----+--------$org_X---------+
