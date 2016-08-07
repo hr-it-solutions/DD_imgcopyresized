@@ -46,7 +46,7 @@ class DD_ImgCopyResized
 		// get temporary file name of image
 		$tmpfname = $file['tmp_name'];
 
-		// Reads Exif header
+		// reads Exif header
 		$exif = exif_read_data($file['tmp_name']);
 
 		// get extension of image and set to lowercase character
