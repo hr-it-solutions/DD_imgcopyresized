@@ -46,11 +46,36 @@ class DD_ImgCopyResized
 		// get temporary file name of image
 		$tmpfname = $file['tmp_name'];
 
+		// Reads Exif header
+		$exif = exif_read_data($file['tmp_name']);
+
 		// get extension of image and set to lowercase character
 		$extension = strtolower(substr(strrchr($fname, '.'), 1));
 
 		// get original width (X) and height (Y) of image
 		list($org_X, $org_Y) = getimagesize($tmpfname);
+
+		// Exif rotation check
+		$imagerotate = false;
+		if(!empty($exif['Orientation'])) {
+			switch($exif['Orientation']) {
+				case 3:
+					$imagerotate = 180;
+					break;
+				case 6:
+					$imagerotate = -90;
+					$tmp_X = $org_X; // Swap X and Y
+					$org_X = $org_Y;
+					$org_Y = $tmp_X;
+					break;
+				case 8:
+					$imagerotate = 90;
+					$tmp_X = $org_X; // Swap X and Y
+					$org_X = $org_Y;
+					$org_Y = $tmp_X;
+					break;
+			}
+		}
 
 		// minimum image size check
 		if ($org_X < $final_width OR $org_Y < $final_height)
@@ -101,6 +126,11 @@ class DD_ImgCopyResized
 			else if ($extension === "gif")
 			{
 				$src_image = imagecreatefromgif($SavePathOrg);
+			}
+
+			// Exif rotation fix
+			if($imagerotate != false){ // rotate image based on Exif rotation
+				$src_image = imagerotate($src_image,$imagerotate,0);
 			}
 
 			{
