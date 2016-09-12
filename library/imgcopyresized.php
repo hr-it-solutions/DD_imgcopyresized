@@ -153,18 +153,23 @@ class DD_ImgCopyResized
 					// height is smaller than x:y
 					$new_Y     = $final_height;
 					$new_X     = floor($final_height * ($org_X / $org_Y));  // Resize based on height
-					$dst_image = imagecreatetruecolor($new_X, $new_Y);
-					imagecopyresampled($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
 				}
 				else
 				{
 					// height is heigher than x:y
 					$new_X     = $final_width;
 					$new_Y     = floor($final_width * ($org_Y / $org_X));  // Resize based on width
-					$dst_image = imagecreatetruecolor($new_X, $new_Y);
-					imagecopyresampled($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
 				}
 			}
+			
+			// Create truecolor image
+			$dst_image = imagecreatetruecolor($new_X, $new_Y);
+			if ($extension === "png" || $extension === "gif")
+			{       // Fill transparen background image
+				$whitecolor = imagecolorallocate($dst_image, 255, 255, 255);
+				imagefill($dst_image, 0, 0, $whitecolor);
+			}
+			imagecopyresampled($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
 
 			// Create thumbnail image
 			if ($extension === "jpg" || $extension === "jpeg")
@@ -188,6 +193,8 @@ class DD_ImgCopyResized
 			imagecopyresampled($tmp_dst_image, $src_image, 0, 0, 0, 0, $final_width, $final_height, $final_width, $final_height);
 
 			imagejpeg($tmp_dst_image, $SavePathThump, $this->final_quality); // Output image to file
+			
+			imagedestroy($dst_image);     // Destroy destination image
 			imagedestroy($tmp_dst_image); // Destroy temporary image
 
 			// After successful completion, this class returns the src string of the generated thumbnail ( example string="/img/1372_image.jpg" )
