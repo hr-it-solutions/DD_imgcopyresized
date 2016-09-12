@@ -154,7 +154,7 @@ class DD_ImgCopyResized
 					$new_Y     = $final_height;
 					$new_X     = floor($final_height * ($org_X / $org_Y));  // Resize based on height
 					$dst_image = imagecreatetruecolor($new_X, $new_Y);
-					imagecopyresized($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
+					imagecopyresampled($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
 				}
 				else
 				{
@@ -162,7 +162,7 @@ class DD_ImgCopyResized
 					$new_X     = $final_width;
 					$new_Y     = floor($final_width * ($org_Y / $org_X));  // Resize based on width
 					$dst_image = imagecreatetruecolor($new_X, $new_Y);
-					imagecopyresized($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
+					imagecopyresampled($dst_image, $src_image, 0, 0, 0, 0, $new_X, $new_Y, $org_X, $org_Y);
 				}
 			}
 
