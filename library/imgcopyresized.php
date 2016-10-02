@@ -100,7 +100,7 @@ class DD_ImgCopyResized
 		else
 		{
 			// build savepath for original image and thumbnail image, including file name for lowercase setup
-			$random = rand(1000, 9999);
+			$random = rand(0000, 9999);
 
 			// set random prefix of original image
 			$newfile     = $random . "org_" . $fname;
